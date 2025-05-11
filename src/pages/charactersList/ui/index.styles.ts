@@ -7,4 +7,28 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  card: {
+    padding: 15, 
+    flexDirection: 'row', 
+    alignItems: 'center',
+    backgroundColor: 'rgba(99, 255, 71, 0.8)',
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderRadius: 20,
+  },
+  image: {
+    width: 80,
+    height: 80, 
+    borderRadius: 50,
+  },
+  name: {
+    marginLeft: 20,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  text: {
+    marginTop: 7,
+    marginLeft: 20,
+    fontSize: 18,
+  }
 });
