@@ -12,11 +12,14 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const CharactersListStack = () => (
     <Stack.Navigator>
-        <Stack.Screen name="CharactersList" component={CharacterList} options={{ title: 'Characters' }} />
+        <Stack.Screen 
+            name = "CharactersList" 
+            component = {CharacterList} 
+            options = {{ title: 'Characters' }} />
         <Stack.Screen
-            name="CharacterDetails"
-            component={CharacterDetails}
-            options={({ route }) => ({ title: route.params.character.name })}
+            name = "CharacterDetails"
+            component = {CharacterDetails}
+            options = {({ route }) => ({ title: route.params.character.name })}
         />
     </Stack.Navigator>
 );

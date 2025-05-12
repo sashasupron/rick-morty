@@ -37,5 +37,28 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 30,
     borderRadius: 20,
-  }
+  },
+  imageBackground: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
+  cardDetails: {
+    backgroundColor: 'rgba(99, 255, 71, 0.8)',
+    marginHorizontal: 20,
+    marginVertical: 30,
+    borderRadius: 20,
+    paddingVertical: 10, 
+    paddingHorizontal: 30,
+  },
+  descDetails: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginVertical: 7,
+  },
+  imageDetails: {
+    width: 200,
+    height: 200, 
+    borderRadius: 100,
+  },
 });
