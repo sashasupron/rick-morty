@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Button, Text, TouchableOpacity } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { styles } from './index.styles';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../app/store';
 
 type Props = {
     onSearch: (filters: { status: string; species: string }) => void;
@@ -31,8 +33,13 @@ export const CharacterFilters = ({ onSearch }: Props) => {
         onSearch({ status, species });
     };
 
+    const theme = useSelector((state: RootState) => state.theme.theme);
+
     return (
-        <View style = {styles.filters}>
+        <View style = {[
+            styles.filters,
+            { backgroundColor: theme === 'dark' ? 'rgba(45, 7, 52, 0.8)' : 'rgba(170, 8, 199, 0.8)' } 
+        ]}>
             <Text style = {styles.description} >Status:</Text>
             <DropDownPicker
                 open = {statusOpen}

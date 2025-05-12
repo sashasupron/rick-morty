@@ -23,7 +23,7 @@ const AppEntry = () => (
               iconName = focused ? 'settings' : 'settings-outline';
             }
     
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <Ionicons name = {iconName} size = {size} color = {color} />;
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
