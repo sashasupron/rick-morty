@@ -6,7 +6,7 @@ import { Character, RootStackParamList } from '../../../entities/character/model
 import { CharacterFilters } from '../../../features/characterFilters/ui/characterFilters';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
+import { CustomLoader } from '../../../shared/widgets/loader';
 
 
 export default function CharacterList () {
@@ -34,6 +34,11 @@ export default function CharacterList () {
         </View>
     ), [setFilters]);
 
+
+    if (loading) {
+        return <CustomLoader />;
+    }
+
     return (
         <ImageBackground
             source = {require('../../../shared/assets/images/image.jpg')} 
@@ -46,7 +51,7 @@ export default function CharacterList () {
                 onEndReached = {() => fetchCharacters(false)}
                 onEndReachedThreshold = {0.5}
                 ListHeaderComponent = {renderFilters} // filters
-                ListFooterComponent = {loading ? <ActivityIndicator size = "large" /> : null}
+                ListFooterComponent = {loading ? <ActivityIndicator size = "large" color = "tomato"/> : null}
             />
         </ImageBackground>
     );

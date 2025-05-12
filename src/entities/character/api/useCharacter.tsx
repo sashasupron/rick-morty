@@ -37,6 +37,8 @@ export const useCharacter = () => {
         }
     }, [filters, loading, nextPage, page]);
 
+    
+
     useEffect(() => {
         setPage(1);
         setNextPage(true);
