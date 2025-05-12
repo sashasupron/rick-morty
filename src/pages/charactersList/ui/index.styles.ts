@@ -30,5 +30,12 @@ export const styles = StyleSheet.create({
     marginTop: 7,
     marginLeft: 20,
     fontSize: 18,
+  },
+  filters: {
+    backgroundColor: 'rgba(170, 8, 199, 0.8)',
+    padding: 15, 
+    marginHorizontal: 20,
+    marginVertical: 30,
+    borderRadius: 20,
   }
 });

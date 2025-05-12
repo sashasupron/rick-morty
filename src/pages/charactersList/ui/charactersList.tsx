@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { styles } from './index.styles';
 import { useCharacter } from '../../../entities/character/api/useCharacter';
 import { Character } from '../../../entities/character/model/types';
+import { CharacterFilters } from '../../../features/characterFilters/ui/characterFilters';
+
 
 export default function CharacterList () {
-    const { characters, fetchCharacters, loading } = useCharacter ();
+    const { characters, fetchCharacters, loading, setFilters } = useCharacter ();
 
     const renderItem = ({ item }: { item: Character }) => (
         <TouchableOpacity style = {styles.card}>
@@ -16,7 +18,13 @@ export default function CharacterList () {
                 <Text style = {styles.text}>{item.species} </Text>
             </View>
         </TouchableOpacity>
-      );
+    );
+
+    const renderFilters = useMemo(() => (
+        <View style = {{ padding: 10 }}>
+            <CharacterFilters onSearch = {setFilters} />
+        </View>
+    ), [setFilters]);
 
     return (
         <ImageBackground
@@ -27,9 +35,10 @@ export default function CharacterList () {
                 data = {characters}
                 renderItem = {renderItem}
                 keyExtractor = {(item) => item.id.toString()}
-                onEndReached = {fetchCharacters}
+                onEndReached = {() => fetchCharacters(false)}
                 onEndReachedThreshold = {0.5}
-                ListFooterComponent = {loading ? <ActivityIndicator size="large" /> : null}
+                ListHeaderComponent = {renderFilters} // filters
+                ListFooterComponent = {loading ? <ActivityIndicator size = "large" /> : null}
             />
         </ImageBackground>
     );
