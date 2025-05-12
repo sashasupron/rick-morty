@@ -2,15 +2,23 @@ import React, { useMemo } from 'react';
 import { View, Text, FlatList, ActivityIndicator, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { styles } from './index.styles';
 import { useCharacter } from '../../../entities/character/api/useCharacter';
-import { Character } from '../../../entities/character/model/types';
+import { Character, RootStackParamList } from '../../../entities/character/model/types';
 import { CharacterFilters } from '../../../features/characterFilters/ui/characterFilters';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 
 
 export default function CharacterList () {
     const { characters, fetchCharacters, loading, setFilters } = useCharacter ();
 
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'CharactersList'>>();
+
     const renderItem = ({ item }: { item: Character }) => (
-        <TouchableOpacity style = {styles.card}>
+        <TouchableOpacity 
+            style = {styles.card}
+            onPress = {() => navigation.navigate('CharacterDetails', { character: item })}
+        >
             <Image source = {{ uri: item.image }} style = {styles.image} />
             <View>
                 <Text style = {styles.name}>{item.name} </Text>

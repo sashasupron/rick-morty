@@ -5,3 +5,8 @@ export interface Character {
     status: string;
     species: string;
 }
+
+export type RootStackParamList = {
+    CharactersList: undefined;
+    CharacterDetails: { character: Character };
+};
