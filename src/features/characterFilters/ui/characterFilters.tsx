@@ -10,7 +10,7 @@ type Props = {
 };
 
 export const CharacterFilters = ({ onSearch }: Props) => {
-    const [statusOpen, setStatusOpen] = useState(false);
+    const [statusOpen, setStatusOpen] = useState(false); // is dropdown open
     const [speciesOpen, setSpeciesOpen] = useState(false);
 
     const [status, setStatus] = useState('');
@@ -40,7 +40,7 @@ export const CharacterFilters = ({ onSearch }: Props) => {
             styles.filters,
             { backgroundColor: theme === 'dark' ? 'rgba(45, 7, 52, 0.8)' : 'rgba(170, 8, 199, 0.8)' } 
         ]}>
-            <Text style = {styles.description} >Status:</Text>
+            <Text style = {styles.description}>Status:</Text>
             <DropDownPicker
                 open = {statusOpen}
                 value = {status}
@@ -53,7 +53,7 @@ export const CharacterFilters = ({ onSearch }: Props) => {
                 onOpen = {() => setSpeciesOpen(false)}
             />
 
-            <Text style = {styles.description} >Species:</Text>
+            <Text style = {styles.description}>Species:</Text>
             <DropDownPicker
                 open = {speciesOpen}
                 value = {species}

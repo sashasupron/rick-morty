@@ -17,7 +17,7 @@ export default function CharacterList () {
 
     const theme = useSelector((state: RootState) => state.theme.theme);
 
-    const renderItem = ({ item }: { item: Character }) => (
+    const renderItem = ({ item }: { item: Character }) => ( // character card
         <TouchableOpacity 
             style = {[
                 styles.card,
@@ -35,7 +35,7 @@ export default function CharacterList () {
         </TouchableOpacity>
     );
 
-    const renderFilters = useMemo(() => (
+    const renderFilters = useMemo(() => ( // useMemo to avoid over-rendering
         <View style = {{ padding: 10 }}>
             <CharacterFilters onSearch = {setFilters} />
         </View>
@@ -54,7 +54,7 @@ export default function CharacterList () {
             <FlatList
                 data = {characters}
                 renderItem = {renderItem}
-                keyExtractor = {(item) => item.id.toString()}
+                keyExtractor = {(item) => item.id.toString()} 
                 onEndReached = {() => fetchCharacters(false)}
                 onEndReachedThreshold = {0.5}
                 ListHeaderComponent = {renderFilters} // filters

@@ -1,3 +1,4 @@
+// contains the main structure of the application
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect } from 'react';
@@ -9,16 +10,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { loadStoredTheme } from '../shared/model/theme/themeSlice'; 
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator(); 
 
-const AppWithThemeLoader = () => {
-  const dispatch = useDispatch();
+const AppWithThemeLoader = () => { // gets last theme from AsyncStorage
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     const fetchTheme = async () => {
       const storedTheme = await AsyncStorage.getItem('appTheme');
       if (storedTheme === 'light' || storedTheme === 'dark') {
-        dispatch(loadStoredTheme(storedTheme));
+        dispatch(loadStoredTheme(storedTheme)); // add theme to reducer
       }
     };
     fetchTheme();
@@ -26,7 +27,7 @@ const AppWithThemeLoader = () => {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator 
+      <Tab.Navigator // bottom navigation
         screenOptions = {({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -48,7 +49,7 @@ const AppWithThemeLoader = () => {
   );
 };
 
-const AppEntry = () => (
+const AppEntry = () => ( // wraps application in Provider to make the Redux store available in any component
   <Provider store = {store}>
     <AppWithThemeLoader />
   </Provider>

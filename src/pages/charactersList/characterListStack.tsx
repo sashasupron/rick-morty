@@ -1,11 +1,12 @@
+// defines stack navigation
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CharacterList from './ui/charactersList';
 import CharacterDetails from './ui/characterDetails';
 import { Character } from '../../entities/character/model/types'; 
 
-type RootStackParamList = {
-    CharactersList: undefined;
-    CharacterDetails: { character: Character };
+type RootStackParamList = { //typification of screen parameters passed through navigation.navigate(...)
+    CharactersList: undefined; // requires no parameters
+    CharacterDetails: { character: Character }; // requires a character object
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -19,7 +20,7 @@ export const CharactersListStack = () => (
         <Stack.Screen
             name = "CharacterDetails"
             component = {CharacterDetails}
-            options = {({ route }) => ({ title: route.params.character.name })}
+            options = {({ route }) => ({ title: route.params.character.name })} //  characterDetails header is taken from the character's name
         />
     </Stack.Navigator>
 );

@@ -5,8 +5,8 @@ import { styles } from "./index.styles";
 const CustomLoader = () => {
     return (
         <View style = {styles.loaderContainer}>
-        <ActivityIndicator size = "large" color = "#ff6347" />
-        <Text style = {styles.loaderText}>Rick is looking for Morty in multiuniverse...</Text>
+            <ActivityIndicator size = "large" color = "#ff6347" />
+            <Text style = {styles.loaderText}>Rick is looking for Morty in multiuniverse...</Text>
         </View>
     );
 };

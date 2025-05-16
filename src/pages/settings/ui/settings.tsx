@@ -11,7 +11,7 @@ export const Settings = () => {
     const currentTheme = useSelector((state: RootState) => state.theme.theme);
     const isDark = currentTheme === 'dark';
   
-    const toggleTheme = () => {
+    const toggleTheme = () => { // defining of current theme 
       const newTheme: ThemeMode = isDark ? 'light' : 'dark';
       dispatch(setTheme(newTheme));
     };
@@ -27,8 +27,9 @@ export const Settings = () => {
                     styles.container,
                     { backgroundColor: currentTheme === 'dark' ? 'rgba(3, 51, 9, 0.8)' : 'rgba(99, 255, 71, 0.8)'}
                 ]}>
-                <Text 
-                    style = {[styles.label, { color: currentTheme === 'dark' ? '#fff' : '#000' }]}>Dark mode</Text>
+                
+                <Text style = {[styles.label, { color: currentTheme === 'dark' ? '#fff' : '#000' }]}>Dark mode</Text>
+                
                 <Switch
                     value = {isDark}
                     onValueChange = {toggleTheme}
