@@ -8,7 +8,8 @@ interface CharacterState {
   error: string | null;
 }
 
-const initialState: CharacterState = { // initial states when the application starts
+const initialState: CharacterState = {
+  // initial states when the application starts
   characters: [],
   loading: false,
   error: null,
@@ -18,7 +19,8 @@ const characterSlice = createSlice({
   name: 'character', // name of slice (key in store)
   initialState,
   reducers: {
-    setCharacters(state, action: PayloadAction<Character[]>) { // reducer
+    setCharacters(state, action: PayloadAction<Character[]>) {
+      // reducer
       state.characters = action.payload; // updates the characters field to what came in the payload
     },
     setLoading(state, action: PayloadAction<boolean>) {
