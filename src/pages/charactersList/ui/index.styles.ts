@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -8,8 +7,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   card: {
-    padding: 15, 
-    flexDirection: 'row', 
+    padding: 15,
+    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'rgba(99, 255, 71, 0.8)',
     marginHorizontal: 20,
@@ -18,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: 80,
-    height: 80, 
+    height: 80,
     borderRadius: 50,
   },
   name: {
@@ -33,7 +32,7 @@ export const styles = StyleSheet.create({
   },
   filters: {
     backgroundColor: 'rgba(170, 8, 199, 0.8)',
-    padding: 15, 
+    padding: 15,
     marginHorizontal: 20,
     marginVertical: 30,
     borderRadius: 20,
@@ -48,7 +47,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 30,
     borderRadius: 20,
-    paddingVertical: 10, 
+    paddingVertical: 10,
     paddingHorizontal: 30,
   },
   descDetails: {
@@ -58,7 +57,7 @@ export const styles = StyleSheet.create({
   },
   imageDetails: {
     width: 200,
-    height: 200, 
+    height: 200,
     borderRadius: 100,
   },
 });

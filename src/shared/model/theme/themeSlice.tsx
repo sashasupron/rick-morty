@@ -1,6 +1,7 @@
+// Redux slice for theme management
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Appearance } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type ThemeMode = 'light' | 'dark';
 
@@ -22,10 +23,12 @@ const themeSlice = createSlice({
   initialState,
   reducers: {
     setTheme(state, action: PayloadAction<ThemeMode>) {
+      // sets theme and saves it to AsyncStorage.
       state.theme = action.payload;
-      AsyncStorage.setItem('appTheme', action.payload); // persist to storage
+      AsyncStorage.setItem('appTheme', action.payload);
     },
     loadStoredTheme(state, action: PayloadAction<ThemeMode>) {
+      // loads theme from AsyncStorage
       state.theme = action.payload;
     },
   },

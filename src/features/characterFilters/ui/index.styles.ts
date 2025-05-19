@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-
 export const styles = StyleSheet.create({
     filters: {
         color: '#000',
@@ -12,7 +11,6 @@ export const styles = StyleSheet.create({
         marginBottom: 70,
         marginTop: 20,
         fontSize: 20,
-        
     },
     button: {
         backgroundColor: 'rgb(238, 205, 244)',
@@ -21,8 +19,8 @@ export const styles = StyleSheet.create({
         borderRadius: 7,
     },
     description: {
-        color: "white",
+        color: 'white',
         fontSize: 18,
         marginTop: 10,
-    }
+    },
 });

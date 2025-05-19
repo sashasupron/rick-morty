@@ -1,12 +1,6 @@
+// redux slice for character management
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-type Character = {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  image: string;
-};
+import { Character } from './types';
 
 interface CharacterState {
   characters: Character[];
@@ -15,17 +9,19 @@ interface CharacterState {
 }
 
 const initialState: CharacterState = {
+  // initial states when the application starts
   characters: [],
   loading: false,
   error: null,
 };
 
 const characterSlice = createSlice({
-  name: 'character',
+  name: 'character', // name of slice (key in store)
   initialState,
   reducers: {
     setCharacters(state, action: PayloadAction<Character[]>) {
-      state.characters = action.payload;
+      // reducer
+      state.characters = action.payload; // updates the characters field to what came in the payload
     },
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload;
